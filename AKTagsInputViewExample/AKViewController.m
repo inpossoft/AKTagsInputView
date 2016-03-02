@@ -20,9 +20,8 @@
 #pragma mark - This is what you are looking for:
 -(AKTagsInputView*)createTagsInputView
 {
-	_tagsInputView = [[AKTagsInputView alloc] initWithFrame:CGRectMake(0, 80.0f, CGRectGetWidth(self.view.bounds), 44.0f)];
-	_tagsInputView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-	_tagsInputView.lookupTags = @[@"ios", @"iphone", @"objective-c", @"development", @"cocoa", @"xcode", @"icloud"];
+	_tagsInputView = [[AKTagsInputView alloc] initWithFrame:CGRectMake(0, 80.0f, CGRectGetWidth(self.view.bounds), 300)];
+	_tagsInputView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
 	_tagsInputView.selectedTags = [NSMutableArray arrayWithArray:@[@"some", @"predefined", @"tags"]];
 	_tagsInputView.enableTagsLookup = YES;
 	return _tagsInputView;

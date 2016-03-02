@@ -36,7 +36,7 @@
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == self.selectedTags.count){
-        return CGSizeMake(CGRectGetWidth(self.collectionView.bounds)/2, CGRectGetHeight(self.bounds));
+        return CGSizeMake(CGRectGetWidth(self.collectionView.bounds)/2, 44);
     } else {
         return [super collectionView:collectionView layout:collectionViewLayout sizeForItemAtIndexPath:indexPath];
     }

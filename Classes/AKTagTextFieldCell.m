@@ -12,7 +12,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _textField = [[AKTextField alloc] initWithFrame:self.contentView.bounds];
+		_textField = [[AKTextField alloc] initWithFrame:CGRectMake(self.contentView.bounds.origin.x, self.contentView.bounds.origin.y, 80, 44)];
 		_textField.frame = CGRectInset(_textField.frame, 0, 5);
 		_textField.autoresizingMask = UIViewAutoresizingFlexibleHeight  | UIViewAutoresizingFlexibleWidth;
 		_textField.buttonPlaceholder = @"+ Add";

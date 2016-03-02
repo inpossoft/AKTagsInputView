@@ -12,7 +12,6 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
-	frame.size.height = 44;
     self = [super initWithFrame:frame];
     if (self) {
         [self addSubview:self.collectionView];
@@ -25,10 +24,9 @@
 {
 	if (!_collectionView){
 		UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
-		flow.scrollDirection = UICollectionViewScrollDirectionHorizontal;
 		flow.minimumLineSpacing = 10;
 		flow.minimumInteritemSpacing = 10;
-		flow.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+		flow.scrollDirection = UICollectionViewScrollDirectionVertical;
 		
 		_collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:flow];
 		_collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
@@ -103,21 +101,10 @@
 	return result;
 }
 
-- (void)scrollListInsertingItem:(NSString *)string
-{
-	CGFloat width = CGRectGetWidth(self.bounds);
-	CGFloat contentXOffset = (self.collectionView.contentSize.width - width);
-	contentXOffset = MAX(contentXOffset + [AKTagCell preferredSizeWithTag:string deleteButtonEnabled:_allowDeleteTags].width, 0);
-	CGPoint offset = CGPointMake(contentXOffset, 0);
-	[self.collectionView setContentOffset:offset animated:YES];
-}
-
 - (void)addNewItemWithString:(NSString *)string completion:(void(^)(void))compeltion
 {
     NSString *squashedString = [self squashWhitespaces:string];
     [self.selectedTags addObject:squashedString];
-    
-    [self scrollListInsertingItem:string];
     
     // this is a workaround of a big problem when CV resigns first responder while dequeue cells.
     // so that my textfield cell may become to unwanted state and get into an UI mess
