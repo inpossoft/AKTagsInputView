@@ -24,15 +24,22 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-		self.backgroundColor = WK_COLOR_GRAY_244;
-		self.layer.cornerRadius = 3;
-		self.clipsToBounds = YES;
-        
+
+		UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:(UIRectCornerTopRight | UIRectCornerBottomRight) cornerRadii:CGSizeMake(self.bounds.size.height / 2, self.bounds.size.height / 2)];
+		CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+		maskLayer.frame = UIEdgeInsetsInsetRect(self.bounds, UIEdgeInsetsMake(1, 1, 1, 1));
+		maskLayer.path = maskPath.CGPath;
+		maskLayer.fillColor = WK_COLOR_BLUE_TAG_COLOR.CGColor;
+		maskLayer.strokeColor = WK_COLOR_BORDER_TAG_COLOR.CGColor;
+		maskLayer.lineWidth = 1;
+		[self.layer insertSublayer:maskLayer atIndex:0];
+		self.clipsToBounds = NO;
+
 		_tagLabel = [[UILabel alloc] initWithFrame:self.bounds];
 		_tagLabel.frame = UIEdgeInsetsInsetRect(_tagLabel.frame, UIEdgeInsetsMake(0, TAG_CELL_PADDING, 0, TAG_CELL_PADDING));
 		_tagLabel.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-		_tagLabel.font = TAG_CELL_FONT;
-		_tagLabel.textColor = WK_COLOR_GRAY_77;
+		_tagLabel.font = [UIFont systemFontOfSize:17];
+		_tagLabel.textColor = [UIColor blackColor];
 	
 		[self addSubview:_tagLabel];
     }

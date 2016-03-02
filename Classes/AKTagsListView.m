@@ -51,7 +51,7 @@
 #pragma mark - CV Layout
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(0, CONTENT_LEFT_MARGIN, 0, 0);
+    return UIEdgeInsetsMake(CONTENT_SIDES_MARGIN, CONTENT_SIDES_MARGIN, CONTENT_SIDES_MARGIN, CONTENT_SIDES_MARGIN);
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath

@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "AKTagCell.h"
 
-#define CONTENT_LEFT_MARGIN 15.0f
+#define CONTENT_SIDES_MARGIN 15.0f
 
 @class AKTagsListView;
 @protocol AKTagsListViewDelegate <NSObject>
