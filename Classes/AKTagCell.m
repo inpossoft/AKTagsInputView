@@ -27,11 +27,11 @@
 
 		UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:(UIRectCornerTopRight | UIRectCornerBottomRight) cornerRadii:CGSizeMake(self.bounds.size.height / 2, self.bounds.size.height / 2)];
 		CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-		maskLayer.frame = UIEdgeInsetsInsetRect(self.bounds, UIEdgeInsetsMake(1, 1, 1, 1));
+		maskLayer.frame = UIEdgeInsetsInsetRect(self.bounds, UIEdgeInsetsMake(.5, .5, .5, .5));
 		maskLayer.path = maskPath.CGPath;
 		maskLayer.fillColor = WK_COLOR_BLUE_TAG_COLOR.CGColor;
 		maskLayer.strokeColor = WK_COLOR_BORDER_TAG_COLOR.CGColor;
-		maskLayer.lineWidth = 1;
+		maskLayer.lineWidth = .5;
 		[self.layer insertSublayer:maskLayer atIndex:0];
 		self.clipsToBounds = NO;
 
@@ -103,7 +103,7 @@
 
 +(CGSize)preferredSizeWithTag:(NSString*)tag deleteButtonEnabled:(BOOL)deleteButtonEnabled
 {
-	CGFloat tagW = [tag sizeWithMyFont:TAG_CELL_FONT].width;
+	CGFloat tagW = [tag sizeWithMyFont:[UIFont systemFontOfSize:17]].width;
 	CGFloat deleteButtonW = (deleteButtonEnabled ? (TAG_CELL_BTN_W + TAG_CELL_PADDING) : 0);
 	CGSize itemSize = CGSizeMake(tagW + 2*TAG_CELL_PADDING + deleteButtonW, TAG_CELL_H);
 	return itemSize;
