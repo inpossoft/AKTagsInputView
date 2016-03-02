@@ -69,9 +69,8 @@
 {
 	[super setSelected:selected];
     if (selected){
-        [self prepareForDelete];
-    } else {
-        [self resetReadyForDeleteStatus];
+		[self prepareForDelete];
+		[_delegate tagCellDidPressedDelete:self];
     }
 }
 
@@ -79,8 +78,7 @@
 {
 	if (!_deleteButton){
 		_deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.bounds) - TAG_CELL_BTN_W - TAG_CELL_PADDING, CGRectGetMidY(self.bounds)-TAG_CELL_BTN_W/2, TAG_CELL_BTN_W, TAG_CELL_BTN_W)];
-		[_deleteButton setBackgroundImage:[UIImage imageNamed:@"cross_red_icon"] forState:UIControlStateNormal];
-		[_deleteButton setBackgroundImage:[UIImage imageNamed:@"cross_icon"] forState:UIControlStateDisabled];
+		[_deleteButton setImage:[UIImage imageNamed:@"Cancel"] forState:UIControlStateNormal];
 		_deleteButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
 		_deleteButton.enabled = NO;
 		[_deleteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

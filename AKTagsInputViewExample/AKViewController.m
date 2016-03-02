@@ -23,7 +23,7 @@
 	_tagsInputView = [[AKTagsInputView alloc] initWithFrame:CGRectMake(0, 80.0f, CGRectGetWidth(self.view.bounds), 300)];
 	_tagsInputView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
 	_tagsInputView.selectedTags = [NSMutableArray arrayWithArray:@[@"some", @"predefined", @"tags"]];
-	_tagsInputView.enableTagsLookup = YES;
+	_tagsInputView.enableTagsLookup = NO;
 	return _tagsInputView;
 }
 -(void)btnPressed:(id)sender
