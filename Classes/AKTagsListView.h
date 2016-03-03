@@ -12,6 +12,7 @@
 
 @class AKTagsListView;
 @protocol AKTagsListViewDelegate <NSObject>
+@optional
 -(void)tagsListView:(AKTagsListView*)tagsView didSelectTag:(NSString*)tag atIndexPath:(NSIndexPath*)indexPath;
 @end
 
