@@ -21,4 +21,5 @@
 -(void)prepareForDelete;
 -(void)resetReadyForDeleteStatus;
 +(CGSize)preferredSizeWithTag:(NSString*)tag deleteButtonEnabled:(BOOL)deleteButtonEnabled;
+-(void)reloadLayer;
 @end
