@@ -6,7 +6,7 @@
 //
 
 #import "AKTagsListView.h"
-#define DEFAULT_FORBIDDEN_CHARS_STRING (@"!$%^&*+.") // these chars are standart hashtags forbidden ones, but I'd allow 'space' char
+#define DEFAULT_FORBIDDEN_CHARS_STRING (@"") // these chars are standart hashtags forbidden ones, but I'd allow 'space' char
 
 @class AKTagsInputView;
 @protocol AKTagsInputViewDelegate <AKTagsListViewDelegate>
